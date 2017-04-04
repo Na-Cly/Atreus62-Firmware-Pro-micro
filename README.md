@@ -10,7 +10,7 @@ Instructions:
 2. After followiing the in depth guide make sure your firmware compiles `sudo make -f Makefile` (inside the working folder)
 3. I use avrdude to flash the pro micro. It can be a little finicky using the command
   ``sudo avrdude -p atmega32u4 -P /dev/ttyACM0  -c avr109  -U flash:w:atreus62.hex`` 
-  -where atreus62.hex is the compiled firmware name and the /dev/ttyACM0 is the device. 
+  (where atreus62.hex is the compiled firmware name and the /dev/ttyACM0 is the device.)
 4.  follow this guide for flashing the pro micro. 
     https://deskthority.net/workshop-f7/how-to-use-a-pro-micro-as-a-cheap-controller-converter-like-soarer-s-t8448.html
     
