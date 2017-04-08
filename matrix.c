@@ -98,14 +98,15 @@ matrix_row_t matrix_get_row(uint8_t row)
 static void  init_cols(void)
 {
     // Input with pull-up(DDR:0, PORT:1)
-    DDRE  &= ~(1<<6);
-    PORTE |=  (1<<6);
-    DDRD  &= ~(1<<7 | 1<<4 | 1<<0 | 1<<1 | 1<<2 | 1<<3);
-    PORTD |=  (1<<7 | 1<<4 | 1<<0 | 1<<1 | 1<<2 | 1<<3);
+    DDRB  &= ~(1<<6 | 1<<5 | 1<<4 | 1<<2);
+    PORTB |=  (1<<6 | 1<<5 | 1<<4 | 1<<2);   
     DDRC  &= ~(1<<6);
     PORTC |=  (1<<6);
-    DDRB  &= ~(1<<3 | 1<<2 | 1<< 6 | 1<<5 | 1<<4);
-    PORTB |=  (1<<3 | 1<<2 | 1<< 6 | 1<<5 | 1<<4);
+    DDRD  &= ~(1<<7 | 1<<4 | 1<<3 | 1<<2 | 1<<1 | 1<<0);
+    PORTD |=  (1<<7 | 1<<4 | 1<<3 | 1<<2 | 1<<1 | 1<<0);      
+    DDRE  &= ~(1<<6);
+    PORTE |=  (1<<6);
+   
 }
 
 static matrix_row_t read_cols(void)
@@ -144,28 +145,28 @@ static void select_row(uint8_t row)
     // Output low(DDR:1, PORT:0) to select
     switch (row) {
         case 0:
-            DDRB  |= (1<<3);
-            PORTB &= ~(1<<3);
+            DDRF  |= (1<<4);
+            PORTF &= ~(1<<4);
             break;
         case 1:
-            DDRB  |= (1<<1);
-            PORTB &= ~(1<<1);
-            break;
-        case 2:
-            DDRF  |= (1<<7);
-            PORTF &= ~(1<<7);
-            break;
-        case 3:
-            DDRF  |= (1<<6);
-            PORTF &= ~(1<<6);
-            break;
-        case 4:
             DDRF  |= (1<<5);
             PORTF &= ~(1<<5);
             break;
+        case 2:
+            DDRF  |= (1<<6);
+            PORTF &= ~(1<<6);
+            break;
+        case 3:
+            DDRF  |= (1<<7);
+            PORTF &= ~(1<<7);
+            break;
+        case 4:
+            DDRB  |= (1<<1);
+            PORTB &= ~(1<<1);
+            break;
         case 5:
-            DDRF |= (1<<4);
-            PORTF &= ~(1<<5);
+            DDRB |= (1<<3);
+            PORTB &= ~(1<<3);
             break;
     }
 }
