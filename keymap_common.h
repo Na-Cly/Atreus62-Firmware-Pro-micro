@@ -29,9 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "keymap.h"
 
 
-/* GH60 keymap definition macro
- * K2C, K31 and  K3C are extra keys for ISO
- */
+//Middle keys defined as another row to save an extra pin on the controller.
 #define KEYMAP( \
     K00, K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, K0B, \
     K10, K11, K12, K13, K14, K15, K16, K17, K18, K19, K1A, K1B, \
